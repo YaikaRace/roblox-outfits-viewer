@@ -31,6 +31,9 @@ async function search(username: string) {
     error.value = "An error occurred on the Roblox server.";
   }
 }
+function clearCache() {
+  sessionStorage.removeItem("outfits");
+}
 </script>
 
 <template>
@@ -40,7 +43,10 @@ async function search(username: string) {
         Roblox Outfits Viewer
       </h1>
       <SearchBar @search="search" />
-      <button class="bg-red-900 p-1 my-4 rounded-lg block mx-auto">
+      <button
+        @click="clearCache"
+        class="bg-red-900 p-1 my-4 rounded-lg block mx-auto hover:bg-gray-300 hover:text-red-900"
+      >
         Erase Cache
       </button>
     </header>
